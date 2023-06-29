@@ -1,6 +1,15 @@
+const fs = require("fs/promises");
 
+// fs.readFile("./db/contacts.json")
+//   .then(data => console.log(data))
+//   .catch(error => console.log(error.message))
 
-
+const readFile = async() => {
+    const buffer = await fs.readFile("./db/contacts.json");
+    const text = buffer.toString();
+    console.log(text);
+}
+readFile()
 // contacts.js
 
 /*
