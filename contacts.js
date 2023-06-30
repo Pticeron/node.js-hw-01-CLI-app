@@ -1,25 +1,14 @@
+const { log } = require("console");
 const fs = require("fs/promises");
+const path = require("path");
 
-// fs.readFile("./db/contacts.json")
-//   .then(data => console.log(data))
-//   .catch(error => console.log(error.message))
+const contactsPath = path.join(__dirname, "contacts.json");
+console.log(contactsPath);
 
-const readFile = async() => {
-    const buffer = await fs.readFile("./db/contacts.json");
-    const text = buffer.toString();
-    console.log(text);
-}
-readFile()
-// contacts.js
 
-/*
- * Розкоментуй і запиши значення
- * const contactsPath = ;
- */
-
-// TODO: задокументувати кожну функцію
-function listContacts() {
-  // ...твій код. Повертає масив контактів.
+const listContacts = async () => {
+  const data = await fs.readFile(contactsPath, "utf-8");
+  return JSON.parse(data);
 }
 
 function getContactById(contactId) {
@@ -33,3 +22,10 @@ function removeContact(contactId) {
 function addContact(name, email, phone) {
   // ...твій код. Повертає об'єкт доданого контакту.
 }
+
+module.exports = {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+} 
