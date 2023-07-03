@@ -3,6 +3,7 @@
 node index.js --action="list"
 https://ibb.co/6RwGx1t
 
+node index.js --action="get"
 https://ibb.co/vvNpHvz
 
 https://ibb.co/HH1q1fy
